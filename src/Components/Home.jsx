@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GET_PRODUCT_PROGRESS } from '../Reduc-saga/Product/action/action';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function Home() {
           </div>
         ))}
       </div>
+      <Link to={"product"} >See More ..</Link>
     </div>
   );
 }

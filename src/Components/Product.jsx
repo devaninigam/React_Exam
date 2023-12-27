@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DELETE_PRODUCT_PROGRESS, GET_PRODUCT_PROGRESS } from '../Reduc-saga/Product/action/action';
+import './Product.css'; 
 
 function Product() {
   const dispatch = useDispatch();
@@ -20,19 +21,21 @@ function Product() {
   );
 
   return (
-    <div className='container'>
-      <div>
-        <label htmlFor="filter">Filter by product name: </label>
+    <div className='product-container'>
+      <div className='filter-container'>
+        <label htmlFor="filter">Product name Filter: </label>
         <input
           type="text"
           id="filter"
+          placeholder='Enter Product'
           value={filter}
+          className='input_text'
           onChange={(e) => setFilter(e.target.value)}
         />
       </div>
-      <div className='d-flex flex-wrap'>
+      <div className='product-list'>
         {filteredProducts.map((item, index) => (
-          <div className='card' key={index} >
+          <div className='product-card' key={index} >
             <h4>{item.product_name}</h4>
             <h5>{item.price}</h5>
             <h5>{item.desc}</h5>
